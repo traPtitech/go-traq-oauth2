@@ -32,5 +32,6 @@ var  oauth2Config = oauth2.Config{
   ClientSecret: os.Getenv("TRAQ_CLIENT_SECRET"),
   Endpoint:     traqoauth2.Prod, // or traqoauth2.Staging
   RedirectURL:  os.Getenv("TRAQ_REDIRECT_URL"),
+  Scopes:       []string{traqoauth2.ScopeRead, traqoauth2.ScopeWrite}
 }
 ```
