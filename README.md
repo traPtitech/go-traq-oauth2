@@ -12,9 +12,11 @@ Package traqoauth2 provides constants for using OAuth2 to access traQ.
 >   - [traPtitech/NeoShowcase](https://github.com/traPtitech/NeoShowcase)
 >   - [traPtitech/caddy-trap-auth](https://github.com/traPtitech/caddy-trap-auth)
 >   - [traPtitech/traefik-forward-auth](https://github.com/traPtitech/traefik-forward-auth)
-> - ログインユーザーの識別情報を利用したい (e.g. GET /users/me, POST /channels/:channelID/messages) 場合
+> - ログインユーザーの識別情報を必要としない場合 (e.g. GET /users, GET /groups/:groupID)
 >   - [Bot](https://bot-console.trap.jp/docs/bot)のAccess Tokenを用いる
 >   - (実装予定) [OAuth2 Client Credential Flow](https://github.com/traPtitech/traQ/issues/2403) を用いる
+> - ログインユーザーの識別情報を利用したい場合 (e.g. GET /users/me, POST /channels/:channelID/messages)
+>   - OAuth2 Authorization Code Flow
 
 Full example: [_example/](_example/)
 
