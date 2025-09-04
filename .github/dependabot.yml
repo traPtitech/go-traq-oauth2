@@ -9,9 +9,7 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-    reviewers: ["ras0q"]
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
       interval: "monthly"
-    reviewers: ["ras0q"]
