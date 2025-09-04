@@ -16,3 +16,25 @@ jobs:
           go-version-file: ./go.mod
       - run: go mod download
       - run: go build -v ./...
+
+  dependabot-automerge:
+    name: Dependabot Automerge
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    needs:
+      - build
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    steps:
+      - name: Dependabot metadata
+        uses: dependabot/fetch-metadata@v2
+        id: metadata
+      - name: Enable automerge
+        if: |
+          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        run: |
+          gh pr merge ${{ github.event.number }} --auto --merge
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
