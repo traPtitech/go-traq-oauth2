@@ -139,7 +139,7 @@ func getMeHandler(w http.ResponseWriter, r *http.Request) {
 	traqConfig.HTTPClient = oauth2Config.Client(r.Context(), token)
 	client := traq.NewAPIClient(traqConfig)
 
-	user, res, err := client.MeApi.GetMe(r.Context()).Execute()
+	user, res, err := client.MeAPI.GetMe(r.Context()).Execute()
 	if err != nil {
 		internalHTTPError(w, err, "failed to get me")
 		return
